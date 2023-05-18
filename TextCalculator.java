@@ -73,7 +73,7 @@ public class TextCalculator {
     static void output(String text){
         System.out.println("\""+text+"\"");
     }
-    private static void exit() {
+    static void exit() {
         System.out.println("Exiting...");
         System.exit(0);
     }
