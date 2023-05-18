@@ -34,10 +34,7 @@ public class TextCalculator {
         for (int i = 0; i < data.length; i++) {
             data[i] = data[i].replace("\"", "");
         }
-        if (data[0].length()>10) {
-            exit();
-        }
-        if (data[1].length()>10) {
+        if (data[0].length()>10 || data[1].length()>10) {
             exit();
         }
 
@@ -45,10 +42,7 @@ public class TextCalculator {
             case '+' -> output(data[0] + data[1]);
             case '*' -> {
                 int numberOf = Integer.parseInt(data[1]);
-                if (numberOf>10) {
-                    exit();
-                }
-                else if (numberOf<1) {
+                if (numberOf>10 || numberOf<1) {
                     exit();
                 }
                 for (int i = 0; i < numberOf; i++) {
@@ -66,12 +60,8 @@ public class TextCalculator {
                     output(result);}}
             case '/' -> {
                 int numberOf = Integer.parseInt(data[1]);
-                if (numberOf>10) {
-                    exit();
-                }
-                else if (numberOf<1) {
-                    exit();
-                }
+                if (numberOf>10 || numberOf<1) {
+                    exit();}
                 divider = data[0].length()/Integer.parseInt(data[1]);
                 result = data[0].substring(0, divider);
                 output(result);}
@@ -85,7 +75,7 @@ public class TextCalculator {
         System.exit(0);
     }
 
-    }
+}
 
 
 
