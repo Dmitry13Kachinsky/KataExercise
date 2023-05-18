@@ -27,23 +27,37 @@ public class TextCalculator {
         }else{
             throw new Exception("Некорректный ввод данных");
         }
-        switch (data[0]) {
-            case "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" -> throw new Exception("Некорректный ввод данных");
-        }
+
         if (action == '*' || action == '/') {
             if (data[1].contains("\"")) throw new Exception("Некорректный ввод данных");
         }
         for (int i = 0; i < data.length; i++) {
             data[i] = data[i].replace("\"", "");
         }
+        if (data[0].length()>10) {
+            exit();
+        }
+        if (data[1].length()>10) {
+            exit();
+        }
 
         switch (action) {
             case '+' -> output(data[0] + data[1]);
             case '*' -> {
                 int numberOf = Integer.parseInt(data[1]);
+                if (numberOf>10) {
+                    exit();
+                }
+                else if (numberOf<1) {
+                    exit();
+                }
                 for (int i = 0; i < numberOf; i++) {
                     result += data[0];}
-                output(result);}
+                if (result.length()>40) {
+                    String rez = result.substring(0, 40);
+                    System.out.println(rez + "...");
+                }
+                else output(result);}
             case '-' -> {
                 index = data[0].indexOf(data[1]);
                 if (index == -1) {output(data[0]);}
@@ -59,5 +73,10 @@ public class TextCalculator {
     static void output(String text){
         System.out.println("\""+text+"\"");
     }
+    private static void exit() {
+        System.out.println("Exiting...");
+        System.exit(0);
+    }
+
 }
 
