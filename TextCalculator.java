@@ -65,6 +65,13 @@ public class TextCalculator {
                     result = data[0].substring(0, index);
                     output(result);}}
             case '/' -> {
+                int numberOf = Integer.parseInt(data[1]);
+                if (numberOf>10) {
+                    exit();
+                }
+                else if (numberOf<1) {
+                    exit();
+                }
                 divider = data[0].length()/Integer.parseInt(data[1]);
                 result = data[0].substring(0, divider);
                 output(result);}
@@ -78,5 +85,7 @@ public class TextCalculator {
         System.exit(0);
     }
 
-}
+    }
+
+
 
