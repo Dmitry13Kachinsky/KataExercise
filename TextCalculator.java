@@ -55,6 +55,11 @@ public class TextCalculator {
             case '-' -> {
                 index = data[0].indexOf(data[1]);
                 if (index == -1) {output(data[0]);}
+                else if (index == 0) {
+                    int index1 = data[1].length();
+                    result = data[0].substring(index1);
+                    output(result);
+                }
                 else {
                     result = data[0].substring(0, index);
                     output(result);}}
