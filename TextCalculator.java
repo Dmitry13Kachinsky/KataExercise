@@ -62,6 +62,7 @@ public class TextCalculator {
                 }
                 else {
                     result = data[0].substring(0, index);
+                    result+=data[0].substring(index+ data[1].length());
                     output(result);}}
             case '/' -> {
                 int numberOf = Integer.parseInt(data[1]);
